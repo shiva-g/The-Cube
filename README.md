@@ -1,2 +1,2 @@
-# The_Cube
+# The Cube
 EMR based time-dependent association
