@@ -9,5 +9,6 @@ This repository contains a set of scripts which analyzes electronic health recor
 ## Files: ##
 
 hpo_is.a_tree.csv - This file contains the ontological information and definition for every single HPO term. The 'is.a' term is the parent term for each respective HPO term.
+
 hpo_ancestors.csv -  This file contains the higher level terms of each HPO term. This is essential for calculating the MICA (most informative common ancestor) between 2 HPO terms which is one of the first steps to finding the similarity score between patients.
 
