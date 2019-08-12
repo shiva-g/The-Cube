@@ -87,7 +87,7 @@ for(numx in 1:NROW(unique_hpo_prop))
     lr['all',i] = lr['emr_usage',i] + lr['na_count',i]
     lr['freq',i] = lr['present',i]/lr['emr_usage',i]
     lr['IC',i] = -log10(lr['freq',i])
-    if(lr['IC',i] == Inf){lr['IC',i] <- NA}
+    if(is.infinite(lr['IC',i])){lr['IC',i] <- NA}
   }
   
   lr['timex',] <- timex
