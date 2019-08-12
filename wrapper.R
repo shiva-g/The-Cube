@@ -10,7 +10,7 @@ library(ggrepel, quietly = T)
 
 capture <- commandArgs(trailingOnly = TRUE)
 
-opt1 = list(make_option(c("--input"), type = "character", default = "input.yaml", dest = "input"))
+opt1 = list(make_option(c("--input"), type = "character", default = "input.yml", dest = "input"))
 
 
 user_input <- function(name, argv) {
