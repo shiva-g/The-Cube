@@ -32,8 +32,8 @@ if (user_input("input", argv)) {
   message('Cannot proceed without input yaml file. Please use "--input" flag .\n')
 }
 
-source("helper_file.R")
-source("3d_arrays.R")
+source("scripts/helper_file.R")
+source("scripts/3d_arrays.R")
 
 check <- file.exists(paste0(input.yaml$outputDir,'/results/ar_mat.rds'),paste0(input.yaml$outputDir,'/results/sr_mat.rds'),paste0(input.yaml$outputDir,'/results/ir_mat.rds'))
 
@@ -41,8 +41,8 @@ if(sum(check) != 3){
   message("All files (matrics) required to proced, were not created.")
   break;
 } else {
-  source("hpo_associations.R")
-  source("wilcoxon_test.R")
+  source("scripts/hpo_associations.R")
+  source("scripts/wilcoxon_test.R")
 }
 
 
