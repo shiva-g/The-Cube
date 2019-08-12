@@ -13,11 +13,34 @@ if(exists("input.yaml")){
   break;
 }
 
-dir.create(paste0(input.yaml$outputDir,"/temp"))
+if(is.null(input.yaml$outputDir)){
+  message("Please specify the outputDir in input yaml file.")
+  break
+  } else {
+  dir.create(paste0(input.yaml$outputDir,"/temp"))
+}
 
+if(!file.exists(input.yaml$aed.encounter)){
+    message('File aed.encounter does not exist. Please provide full path to the file. \n')
+    break
+  } else {
 merge_count <- read_csv(input.yaml$aed.encounter)
-dx_shifted_hpo_raw <- read_csv(input.yaml$diagnosis)
-survival = read_csv(input.yaml$survival)
+  }
+
+if(!file.exists(input.yaml$diagnosis)){
+    message('File diagnosis does not exist. Please provide full path to the file. \n')
+    break
+  } else { 
+dx_shifted_hpo_raw <- read_csv(input.yaml$diagnosis)  
+  }
+
+
+if(!file.exists(input.yaml$survival)){
+    message('File survival does not exist. Please provide full path to the file. \n')
+    break
+  } else { 
+  survival = read_csv(input.yaml$survival)
+  }
 
 if(is.null(input.yaml$hpo_tree)){
 hpo_tree = read_csv("files/hpo_is.a_tree.csv")
@@ -55,15 +78,15 @@ if(tmp == tmp_1) {
       indv <- tmp
     } else {
       message('Number of individuals in diagnosis and aed enconters are different')
-      break;
+      break
     }
   } else {
     message('Number of individuals in survival and aed enconters are different')
-    break;
+    break
   }
   } else {
     message('Number of individuals in survival and diagnosis are different')
-    break;
+    break
   }
 rm(tmp,tmp_1,tmp_2)
 
