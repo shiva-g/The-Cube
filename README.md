@@ -3,15 +3,14 @@
 This repository contains a set of scripts which analyzes electronic health records (EHR) records of a population accross a set time. Time-stamped problem list information from neurology encounters is extracted from the EHR and then translated into HPO (Human Phenotype Onotology) terms. For each patient, terms are split into 3 month time bins according to their time-stamp. Worth or Information Content (IC) is assigned to each term at each time point according to its prevalence within that 3 month time bin. Patients are then grouped according to their diagnosed genetic diagnosis and the similarity within each genetic-based group is compared to other patients at each particular bin. Consequently, we can find which genes at each time bins are signficantly more similar to other patients within their gene group than the rest of the cohort at the respective time bin. Furthermore, we can find which HPO terms are significantly more present in a gene group at each time bin.
 
 
-## Scripts: ##
+### Scripts:
 
 This [wrapper](https://github.com/shiva-g/The-Cube/blob/master/wrapper.R) script needs to be submitted to run the entire pipeline.
-[Helper file](https://github.com/shiva-g/The-Cube/blob/master/scripts/helper_file.R)  - loads data and cleans it. Creates base and prop hpo files. 
+  [Helper file](https://github.com/shiva-g/The-Cube/blob/master/scripts/helper_file.R)  - loads data and cleans it. Creates base and prop hpo files. 
   [](https://github.com/shiva-g/The-Cube/blob/master/scripts/3d_arrays.R) - creates the 3d matrices.
-  [Fishers test](https://github.com/shiva-g/The-Cube/blob/master/scripts/hpo_associations.R) - hpo_associations
-  [Wilcoxon test](https://github.com/shiva-g/The-Cube/blob/master/scripts/wilcoxon_test.R) - ridge plot
+  [Fishers test](https://github.com/shiva-g/The-Cube/blob/master/scripts/hpo_associations.R) - hpo_associations.
+  [Wilcoxon test](https://github.com/shiva-g/The-Cube/blob/master/scripts/wilcoxon_test.R) - ridge plot.
   
-
 
 ## Files: ##
 
