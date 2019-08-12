@@ -5,7 +5,7 @@ survival: #required
 
 outputDir: /mnt/isilon/cbmi/variome/ramki/temp/Exomedepth/Aug_samples # required
 
-hpo_tree: #optional if not given the version i n files folder is used. required if hpo_ancs is mentioned. 
+hpo_tree: #optional. If not provided the version in files folder will be used. required if hpo_ancs is mentioned. 
 hpo_ancs: #required if hpo_tree is mentioned. 
 
 plot: yes # required yes / no -> all plots will be saved to the plots folder
