@@ -12,3 +12,13 @@ hpo_is.a_tree.csv - This file contains the ontological information and definitio
 
 hpo_ancestors.csv -  This file contains the higher level terms of each HPO term. This is essential for calculating the MICA (most informative common ancestor) between 2 HPO terms which is one of the first steps to finding the similarity score between patients.
 
+
+### Requirements:
+  [R](https://www.r-project.org/) with the following packages:
+    * [optparse](https://cran.r-project.org/web/packages/optparse/index.html)
+    * [yaml](https://cran.r-project.org/web/packages/yaml/index.html)
+    * [tidyverse](https://cran.r-project.org/web/packages/tidyverse/index.html)
+    * [dplyr](https://cran.r-project.org/web/packages/dplyr/index.html)
+    * [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html)
+    * [ggridges](https://cran.r-project.org/web/packages/ggridges/index.html)
+    * [ggrepel](https://cran.r-project.org/web/packages/ggrepel/index.html)
