@@ -78,13 +78,14 @@ write_csv(t_prime,paste0(input.yaml$outputDir,'/results/phensim_scores.csv'))
 
 if(input.yaml$plot == T ){
 pdf(paste0(input.yaml$outputDir,"/plots/ridge_plot.pdf"),width = 16, height = 9  )
-
-ggplot(plotx_sum, aes(x=time_point, y=gene,
+print(ggplot(plotx_sum, aes(x=time_point, y=gene,
                        height = log_mod, fill=gene)) +
   geom_ridgeline(show.legend = F,size=0,alpha=0.3) +
   xlab("Age") +
   ylab('-log(p-value) if p-value is < 0.05') +
-  ggtitle("Wilcoxon Test for significant similarities between all genetic epilepies in EGRP")
+  ggtitle("Wilcoxon Test for significant similarities between all genetic epilepies in EGRP"))
+  
+dev.off()  
 }
 
 
