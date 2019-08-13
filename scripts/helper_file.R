@@ -106,6 +106,8 @@ base_temp <- dx_shifted_hpo %>%
   left_join((hpo_tree %>% select(term, def)), by = c("HPO_IMO_ID" = "term")) %>% 
   rename(HPO_IMO_def = def) 
 
+base_temp  %>% filter( !is.na(HPO_IMO_def)) -> base_temp
+
 #all base terms propagate up to the parent term  
 prop2 <- base_temp %>% 
   select(STUDY_ID,AGE,HPO_IMO_ID) %>%
@@ -144,7 +146,8 @@ if( prop5 %>% filter(n == 0) %>% NROW() != 0)
   prop_temp <- prop4b; rm(prop4b)
   
 }
+prop_temp  %>% filter( !is.na(HPO_ID_prop)) -> prop_temp
 
 write_csv(base_temp, paste0(input.yaml$outputDir,"/temp/base_hpo.csv"))
-write_csv(base_temp, paste0(input.yaml$outputDir,"/temp/prop_hpo.csv"))
+write_csv(prop_temp, paste0(input.yaml$outputDir,"/temp/prop_hpo.csv"))
 

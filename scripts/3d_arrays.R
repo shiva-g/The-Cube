@@ -87,7 +87,7 @@ for(numx in 1:NROW(unique_hpo_prop))
     lr['all',i] = lr['emr_usage',i] + lr['na_count',i]
     lr['freq',i] = lr['present',i]/lr['emr_usage',i]
     lr['IC',i] = -log10(lr['freq',i])
-    if(is.infinite(lr['IC',i])){lr['IC',i] <- NA}
+    if(is.infinite(lr['IC',i])){ lr['IC',i] <- NA }
   }
   
   lr['timex',] <- timex
@@ -132,7 +132,7 @@ sim_score = function(pat1,pat2,time_point) {
   names(merge_t) <- c("IC")
   merge_t$hpo_id <- row.names(merge_t)
   
-  merge_y <- merge_x %>% left_join(merge_t) %>% filter(hpo_overlap == 1)
+  merge_y <- merge_x %>% left_join(merge_t, by = "hpo_id") %>% filter(hpo_overlap == 1)
   
   return(sum(merge_y$IC))
 }
@@ -146,7 +146,7 @@ timex_1 = paste('t_',round(timex,2),sep='')
 for(i in 1:NROW(comb_table)){
   
   for(j in 1:NROW(timex_1)){
-    print(c(i,j))
+  #  print(c(i,j))
     ir[comb_table$V1[i],comb_table$V2[i],timex_1[j]] = sim_score(comb_table$V1[i],comb_table$V2[i],timex_1[j])
   }
 }
