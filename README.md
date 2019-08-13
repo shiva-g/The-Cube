@@ -6,9 +6,13 @@ This repository contains a set of scripts which analyzes electronic health recor
 ## Scripts: ##
 
 This [wrapper](https://github.com/shiva-g/The-Cube/blob/master/wrapper.R) script needs to be submitted to run the entire pipeline.
+
   [Helper file](https://github.com/shiva-g/The-Cube/blob/master/scripts/helper_file.R)  - loads data and cleans it. Creates base and prop hpo files. 
-  [](https://github.com/shiva-g/The-Cube/blob/master/scripts/3d_arrays.R) - creates the 3d matrices.
+  
+  [3d Array creation](https://github.com/shiva-g/The-Cube/blob/master/scripts/3d_arrays.R) - creates the 3d matrices.
+  
   [Fishers test](https://github.com/shiva-g/The-Cube/blob/master/scripts/hpo_associations.R) - hpo_associations.
+  
   [Wilcoxon test](https://github.com/shiva-g/The-Cube/blob/master/scripts/wilcoxon_test.R) - ridge plot.
   
 
