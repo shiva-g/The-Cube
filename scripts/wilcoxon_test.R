@@ -83,7 +83,7 @@ print(ggplot(plotx_sum, aes(x=time_point, y=gene,
   geom_ridgeline(show.legend = F,size=0,alpha=0.3) +
   xlab("Age") +
   ylab('-log(p-value) if p-value is < 0.05') +
-  ggtitle("Wilcoxon Test for significant similarities between all genetic epilepies in EGRP"))
+  ggtitle("Wilcoxon Test for significant similarities"))
   
 dev.off()  
 }

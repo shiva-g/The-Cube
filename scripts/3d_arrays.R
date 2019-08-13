@@ -6,7 +6,7 @@ library(ggplot2,quietly = T)
 library(ggridges,quietly = T)
 library(ggrepel, quietly = T)
 
-dir.create(paste0(input.yaml$outputDir,"/results"))
+dir.create(paste0(input.yaml$outputDir,"/results"),showWarnings = F)
 
 tx <- base_temp$STUDY_ID %>% unique()
 

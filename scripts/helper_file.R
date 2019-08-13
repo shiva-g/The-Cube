@@ -17,29 +17,35 @@ if(is.null(input.yaml$outputDir)){
   message("Please specify the outputDir in input yaml file.")
   break
   } else {
-  dir.create(paste0(input.yaml$outputDir,"/temp"))
+  dir.create(paste0(input.yaml$outputDir,"/temp"),showWarnings = F)
 }
 
-if(!file.exists(input.yaml$aed.encounter)){
-    message('File aed.encounter does not exist. Please provide full path to the file. \n')
+if( is.null(input.yaml$aed.encounter)){
+    message('Parameter aed.encounter is not provided. Please provide full path to the file. \n')
     break
-  } else {
+  } else if(!file.exists(input.yaml$aed.encounter)){
+message('File aed.encounter does not exist. Please provide full path to the file. \n')
+    break
+} else {
 merge_count <- read_csv(input.yaml$aed.encounter)
   }
 
-if(!file.exists(input.yaml$diagnosis)){
-    message('File diagnosis does not exist. Please provide full path to the file. \n')
+if( is.null(input.yaml$diagnosis)){
+    message('Parameter diagnosis is not provided. Please provide full path to the file. \n')
     break
-  } else { 
+  } else if(!file.exists(input.yaml$diagnosis)){ 
+message('File diagnosis does not exist. Please provide full path to the file. \n')
+ } else {
 dx_shifted_hpo_raw <- read_csv(input.yaml$diagnosis)  
   }
 
-
-if(!file.exists(input.yaml$survival)){
-    message('File survival does not exist. Please provide full path to the file. \n')
+if( is.null(input.yaml$survival)){
+    message('Parameter survival is not provided. Please provide full path to the file. \n')
     break
-  } else { 
-  survival = read_csv(input.yaml$survival)
+  } else if(!file.exists(input.yaml$survival)){ 
+message('File survival does not exist. Please provide full path to the file. \n')
+ } else {
+survival <- read_csv(input.yaml$survival)
   }
 
 if(is.null(input.yaml$hpo_tree)){
