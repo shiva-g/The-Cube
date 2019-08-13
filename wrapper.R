@@ -38,7 +38,7 @@ source("scripts/3d_arrays.R")
 check <- file.exists(paste0(input.yaml$outputDir,'/results/ar_mat.rds'),paste0(input.yaml$outputDir,'/results/sr_mat.rds'),paste0(input.yaml$outputDir,'/results/ir_mat.rds'))
 
 if(sum(check) != 3){
-  message("All files (matrics) required to proced, were not created.")
+  message("All files (matrics) required to proceed, were not created.")
   break;
 } else {
   source("scripts/hpo_associations.R")
