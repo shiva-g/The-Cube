@@ -33,7 +33,7 @@ This [wrapper](https://github.com/shiva-g/The-Cube/blob/master/wrapper.R) script
     * [ggridges](https://cran.r-project.org/web/packages/ggridges/index.html)
     * [ggrepel](https://cran.r-project.org/web/packages/ggrepel/index.html)
 
-### Submitting 
+### Submitting :
 
 ```
 Rscript wrapper.R --input input.yml
