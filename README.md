@@ -32,3 +32,9 @@ This [wrapper](https://github.com/shiva-g/The-Cube/blob/master/wrapper.R) script
     * [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html)
     * [ggridges](https://cran.r-project.org/web/packages/ggridges/index.html)
     * [ggrepel](https://cran.r-project.org/web/packages/ggrepel/index.html)
+
+### Submitting 
+
+```
+Rscript wrapper.R --input input.yml
+```
