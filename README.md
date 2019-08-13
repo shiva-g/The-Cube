@@ -25,13 +25,13 @@ This [wrapper](https://github.com/shiva-g/The-Cube/blob/master/wrapper.R) script
 
 ### Requirements:
   [R](https://www.r-project.org/) with the following packages:
-    1. [optparse](https://cran.r-project.org/web/packages/optparse/index.html)
-    2. [yaml](https://cran.r-project.org/web/packages/yaml/index.html)
-    3. [tidyverse](https://cran.r-project.org/web/packages/tidyverse/index.html)
-    4. [dplyr](https://cran.r-project.org/web/packages/dplyr/index.html)
-    5. [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html)
-    6. [ggridges](https://cran.r-project.org/web/packages/ggridges/index.html)
-    7. [ggrepel](https://cran.r-project.org/web/packages/ggrepel/index.html)
+1. [optparse](https://cran.r-project.org/web/packages/optparse/index.html)
+2. [yaml](https://cran.r-project.org/web/packages/yaml/index.html)
+3. [tidyverse](https://cran.r-project.org/web/packages/tidyverse/index.html)
+4. [dplyr](https://cran.r-project.org/web/packages/dplyr/index.html)
+5. [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html)
+6. [ggridges](https://cran.r-project.org/web/packages/ggridges/index.html)
+7. [ggrepel](https://cran.r-project.org/web/packages/ggrepel/index.html)
 
 ### Submitting :
 
