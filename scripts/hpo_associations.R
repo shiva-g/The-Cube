@@ -132,7 +132,7 @@ if(input.yaml$plot == T ){
     
     pdf(paste0(input.yaml$outputDir,"/plots/Asociation_of_HPO_terms_and_",spec_gene,'_over_time.pdf'),width = 16, height = 9  )
     
-    ggplot(t_prime_gene,aes(x=time_point,
+    print(ggplot(t_prime_gene,aes(x=time_point,
                             y=max_log,
                             size= max_log,
                             color= max_log,
@@ -143,8 +143,8 @@ if(input.yaml$plot == T ){
       theme(legend.position = 'none') +
       ggtitle(titlex) +
       xlab('Age') +
-      ylab('-log10(pvalue) at time point with most significant association')
-    
+      ylab('-log10(pvalue) at time point with most significant association'))
+    dev.off()
     # ggsave(paste0(input.yaml$outputDir,"/plots/Asociation_of_HPO_terms_and_",spec_gene,'_over_time.jpeg'),  dpi = 750, width = 16, height = 9)
   }
   
