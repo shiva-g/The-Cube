@@ -19,9 +19,9 @@ pval_gene <- function(gene_in,time_point_in)
   sel_gene_tbl = as.data.frame(timex_1)
   sel_gene_tbl$timex_1 = as.character(sel_gene_tbl$timex_1)
   
-  lapply(1:NROW(sel_gene_tbl), FUN = function(x) sum(ir[sel_gene,sel_gene,x], na.rm = T) ) %>% unlist -> sel_gene_tbl$sum 
-  lapply(1:NROW(sel_gene_tbl), FUN = function(x) mean(ir[sel_gene,sel_gene,x], na.rm = T) ) %>% unlist -> sel_gene_tbl$mean
-  lapply(1:NROW(sel_gene_tbl), FUN = function(x) median(ir[sel_gene,sel_gene,x], na.rm = T) ) %>% unlist -> sel_gene_tbl$median  
+#  lapply(1:NROW(sel_gene_tbl), FUN = function(x) sum(ir[sel_gene,sel_gene,x], na.rm = T) ) %>% unlist -> sel_gene_tbl$sum 
+#  lapply(1:NROW(sel_gene_tbl), FUN = function(x) mean(ir[sel_gene,sel_gene,x], na.rm = T) ) %>% unlist -> sel_gene_tbl$mean
+#  lapply(1:NROW(sel_gene_tbl), FUN = function(x) median(ir[sel_gene,sel_gene,x], na.rm = T) ) %>% unlist -> sel_gene_tbl$median  
   
   sel_gene_tbl_1 = as.data.frame(timex_1)
   sel_gene_tbl_1$timex_1 = as.character(sel_gene_tbl_1$timex_1)
@@ -74,7 +74,7 @@ plotx_sum$log_mod = plotx_sum$log - (-log10(0.05))
 plotx_sum$log_mod[plotx_sum$log_mod < 0] <- 0
 plotx_sum$log_mod[is.na(plotx_sum$log_mod)] <- 0
 
-write_csv(t_prime,paste0(input.yaml$outputDir,'/results/phensim_scores.csv'))
+write_csv(plotx_sum,paste0(input.yaml$outputDir,'/results/phensim_scores.csv'))
 
 if(input.yaml$plot == T ){
 pdf(paste0(input.yaml$outputDir,"/plots/ridge_plot.pdf"),width = 16, height = 9  )
