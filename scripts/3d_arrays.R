@@ -41,8 +41,8 @@ dimnames(sr)[[1]] <- c('all','emr_usage','na_count','present','absent','freq','I
 dimnames(sr)[[2]] <- paste('t_',round(timex,2),sep='')
 dimnames(sr)[[3]] <- unique_hpo_prop %>% t %>% as.vector()
 
-for(numx in 1:NROW(unique_hpo_prop))
-{
+ for(numx in 1:NROW(unique_hpo_prop))
+ {
   hpo_term <- unique_hpo_prop[numx,1] %>% as.character()
   
   tx_timex <- matrix(ncol = length(timex),nrow = length(tx)) %>% as.data.frame()
@@ -107,8 +107,11 @@ for(numx in 1:NROW(unique_hpo_prop))
   
   ar[,,numx] <- tx_timex %>% as.matrix
   sr[,,numx] <- lr %>% as.matrix
-}
+ }
 
+
+ saveRDS(ar, paste0(input.yaml$outputDir,'/results/ar_mat.rds'))
+ saveRDS(sr,paste0(input.yaml$outputDir,'/results/sr_mat.rds'))
 
 # ir matrix - information content of patient pairs . 
 ir <- array(dim=c(length(tx),
@@ -146,12 +149,10 @@ timex_1 = paste('t_',round(timex,2),sep='')
 for(i in 1:NROW(comb_table)){
   
   for(j in 1:NROW(timex_1)){
-  #  print(c(i,j))
+    print(c(i,j))
     ir[comb_table$V1[i],comb_table$V2[i],timex_1[j]] = sim_score(comb_table$V1[i],comb_table$V2[i],timex_1[j])
   }
-}
+ }
 
-saveRDS(ar, paste0(input.yaml$outputDir,'/results/ar_mat.rds'))
-saveRDS(sr,paste0(input.yaml$outputDir,'/results/sr_mat.rds'))
-saveRDS(ir,paste0(input.yaml$outputDir,'/results/ir_mat.rds'))
+ saveRDS(ir,paste0(input.yaml$outputDir,'/results/ir_mat.rds'))
 

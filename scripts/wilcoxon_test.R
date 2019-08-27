@@ -32,13 +32,20 @@ pval_gene <- function(gene_in,time_point_in)
   
   gene_present <- reshape2::melt(arr_2_25_stx) %>% filter(!is.na(value))
   gene_absent <- reshape2::melt(arr_2_25_other) %>% filter(!is.na(value))
+
+
+  m_present <- mean(gene_present$value)
+  m_absent <- mean(gene_absent$value)  
   ret <- NA
   if (NROW(gene_present) > 0 & NROW(gene_absent) > 0)
   {
     resx <- wilcox.test(gene_present$value,gene_absent$value,alternative = "two.sided")
-    resx$p.value -> ret
+    resx$p.value -> ret[1]
   }
+  ret[2] <- m_present
+  ret[3] <-  m_absent
   ret %>% return
+
 }
 
 
@@ -53,6 +60,10 @@ plotx_sum$gene <- NA
 plotx_sum$log <- NA
 plotx_sum <- plotx_sum[0,]
 
+pvals <- seq(1,303,by=3)
+pres <- seq(2,303,by=3)
+abs <- seq(3,303,by=3) 
+
 for(numx in 1:NROW(gene_list)) {
   genexx = gene_list$gene[numx] %>% as.character
   print(genexx)
@@ -63,8 +74,12 @@ for(numx in 1:NROW(gene_list)) {
   plotx$time_point <- timex
   plotx$gene <- genexx
 
-  plotx$pval = lapply(1:NROW(timex_1), FUN = function(x) pval_gene(genexx, timex_1[x]) ) %>% unlist
-  
+
+  setx = lapply(1:NROW(timex_1), FUN = function(x) pval_gene(genexx, timex_1[x]) ) %>% unlist
+  plotx$pval = setx[c(pvals)]
+   plotx$mean_present = setx[c(pres)]
+   plotx$mean_absent = setx[c(abs)]
+
   plotx$log <- -log10(plotx$pval)
   plotx_sum <- rbind(plotx_sum,plotx)
   
@@ -73,6 +88,9 @@ for(numx in 1:NROW(gene_list)) {
 plotx_sum$log_mod = plotx_sum$log - (-log10(0.05))
 plotx_sum$log_mod[plotx_sum$log_mod < 0] <- 0
 plotx_sum$log_mod[is.na(plotx_sum$log_mod)] <- 0
+
+plotx_sum$log_mod[ which(is.infinite(plotx_sum$log_mod))] = 210
+plotx_sum$mean_ratio = plotx_sum$mean_present/plotx_sum$mean_absent
 
 write_csv(plotx_sum,paste0(input.yaml$outputDir,'/results/phensim_scores.csv'))
 
