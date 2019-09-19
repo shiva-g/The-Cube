@@ -15,9 +15,16 @@ This [wrapper](https://github.com/shiva-g/The-Cube/blob/master/wrapper.R) script
 
 ## Files: ##
 
-[hpo_is.a_tree.csv](https://github.com/shiva-g/The-Cube/blob/master/files/hpo_is.a_tree.csv) - This file contains the ontological information and definition for every single HPO term. The 'is.a' term is the parent term for each respective HPO term.
+[hpo_is.a_tree](https://github.com/shiva-g/The-Cube/blob/master/files/hpo_is.a_tree.csv) - This file contains the ontological information and definition for every single HPO term. The 'is.a' term is the parent term for each respective HPO term.
 
-[hpo_ancestors.csv](https://github.com/shiva-g/The-Cube/blob/master/files/hpo_ancestors.csv) -  This file contains the higher level terms of each HPO term. This is essential for calculating the MICA (most informative common ancestor) between 2 HPO terms which is one of the first steps to finding the similarity score between patients.
+[hpo_ancestors](https://github.com/shiva-g/The-Cube/blob/master/files/hpo_ancestors.csv) -  This file contains the higher level terms of each HPO term. This is essential for calculating the MICA (most informative common ancestor) between 2 HPO terms which is one of the first steps to finding the similarity score between patients.
+
+[aed_encounter](https://github.com/shiva-g/The-Cube/blob/master/files/aed_encounter.csv) -  This file contains the first and last encounters for each study ID.
+
+[diagnosis](https://github.com/shiva-g/The-Cube/blob/master/files/diagnosis.csv) -  This file has all the diagnosis for each study ID at all time points along with the HPO terms.
+
+[survival](https://github.com/shiva-g/The-Cube/blob/master/files/survival.csv) -  This file containts information about the genetic diagnosis of each study ID along with gender and diagnosis category.
+
 
 
 ### Requirements:
