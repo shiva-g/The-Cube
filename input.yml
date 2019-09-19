@@ -1,9 +1,10 @@
 # all files are requested in the exact format and column name as present in the files folder. 
-aed.encounter: # required 
-diagnosis: # required
-survival: #required
+# Please provide complete path to the files.
+aed.encounter: files/aed_encounter.csv # required 
+diagnosis: files/diagnosis.csv # required
+survival: files/survival.csv #required
 
-outputDir: /mnt/isilon/cbmi/variome/ramki/temp/Exomedepth/Aug_samples # required
+outputDir: . # required
 
 hpo_tree: #optional. If not provided the version in files folder will be used. required if hpo_ancs is mentioned. 
 hpo_ancs: #required if hpo_tree is mentioned. 
