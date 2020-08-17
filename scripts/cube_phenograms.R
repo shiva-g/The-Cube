@@ -541,8 +541,8 @@ gg_heatmap <- function(gn){
 tmp_gene_1 <- read.csv(paste0("../results/",gn,"_movie_data.csv"),stringsAsFactors = F)
 tmp_gene_1$freq_ratio <- tmp_gene_1$freq_gene / tmp_gene_1$freq_nogene
 return(print( ggplot(data = scn1a %>% filter(color.code.2 != "not significant"), aes(x = time_point,y=definition,fill = log(freq_ratio))) + 
-  geom_tile() + theme_classic() + theme(axis.text.y = element_text(angle = 45),axis.title.y = element_blank())+xlab('Age in years')+scale_fill_gradientn(colours = c("turquoise2", "#CCFF00FF","#FF758F","#FF7578"),na.value = "azure2")))
-}
+                   ggtitle(paste0("Heatmap of ",gn))+ geom_tile() + theme_classic() + theme(axis.text.y = element_text(angle = 45),axis.title.y = element_blank())+xlab('Age in years')+scale_fill_gradientn(colours = c("turquoise2", "#CCFF00FF","#FF758F","#FF7578"),na.value = "azure2")))
+ }
 
 
  
