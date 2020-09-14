@@ -39,7 +39,7 @@ pval_gene <- function(gene_in,time_point_in)
   ret <- NA
   if (NROW(gene_present) > 0 & NROW(gene_absent) > 0)
   {
-    resx <- wilcox.test(gene_present$value,gene_absent$value,alternative = "two.sided")
+    resx <- wilcox.test(gene_present$value,gene_absent$value,alternative = "greater")
     resx$p.value -> ret[1]
   }
   ret[2] <- m_present
